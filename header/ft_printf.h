@@ -6,7 +6,7 @@
 /*   By: kbedene <kbedene@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/29 10:04:20 by kbedene      #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/19 11:14:16 by kbedene     ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/19 12:26:59 by kbedene     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -70,6 +70,7 @@ int					ft_apply_width(char **str_spec, t_param *spec);
 void				ft_init_spec(t_param *spec);
 char				ft_atoi_binary(char *binary);
 char				*ft_wint_to_str(unsigned int character);
+char				*ft_wchart_to_str(unsigned int characters);
 
 /*
  ** Process functions

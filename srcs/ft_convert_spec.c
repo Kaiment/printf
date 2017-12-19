@@ -6,7 +6,7 @@
 /*   By: kbedene <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/07 14:41:14 by kbedene      #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/18 17:01:40 by kbedene     ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/19 12:23:45 by kbedene     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,7 +26,7 @@ static t_proc_type		new_func(char type, char *(*func)(t_param *spec,
 static void				fill_funcs(t_proc_type **funcs)
 {
 	(*funcs)[0] = new_func('s', &ft_proc_s);
-	(*funcs)[1] = new_func('S', &ft_proc_s_maj);
+	(*funcs)[1] = new_func('S', &ft_proc_s);
 	(*funcs)[2] = new_func('p', &ft_proc_p);
 	(*funcs)[3] = new_func('d', &ft_proc_d);
 	(*funcs)[4] = new_func('D', &ft_proc_d);
