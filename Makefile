@@ -6,7 +6,7 @@
 #    By: kbedene <marvin@le-101.fr>                 +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/12/18 12:21:51 by kbedene      #+#   ##    ##    #+#        #
-#    Updated: 2017/12/18 17:02:08 by kbedene     ###    #+. /#+    ###.fr      #
+#    Updated: 2017/12/19 12:28:07 by kbedene     ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -20,8 +20,8 @@ SRC_FILES =\
 			ft_check_flags.c ft_check_width.c ft_check_precision.c\
 			ft_check_size.c\
 			ft_get_type.c ft_init_spec.c ft_isflag.c ft_isize.c\
-			ft_wint_to_str.c\
-			ft_proc_s.c ft_proc_s_maj.c\
+			ft_wint_to_str.c ft_wchart_to_str.c\
+			ft_proc_s.c\
 			ft_proc_d.c ft_proc_x.c ft_proc_p.c\
 			ft_proc_c.c\
 			ft_ctoa.c ft_putcstr.c ft_strncpy.c\
