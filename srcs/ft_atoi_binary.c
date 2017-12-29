@@ -6,7 +6,7 @@
 /*   By: kbedene <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/14 17:21:25 by kbedene      #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/15 15:53:28 by kbedene     ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/19 14:01:14 by kbedene     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,7 +20,7 @@ char		ft_atoi_binary(char *binary)
 	int		j;
 	int		result;
 
-	if (strlen(binary) != 8)
+	if (ft_strlen(binary) != 8)
 	{
 		ft_putstr("Error : incorrect byte\n");
 		return (-1);

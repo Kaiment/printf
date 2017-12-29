@@ -6,14 +6,14 @@
 /*   By: kbedene <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/07 14:41:14 by kbedene      #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/19 12:23:45 by kbedene     ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/20 09:47:38 by kbedene     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../header/ft_printf.h"
 
-static t_proc_type		new_func(char type, char *(*func)(t_param *spec,
+static t_proc_type		new_func(char type, char *(*func)(t_param **spec,
 			va_list *ap))
 {
 	t_proc_type		new;
@@ -60,7 +60,7 @@ char					*ft_convert_spec(t_param *spec, va_list *ap)
 	while (i < 15)
 	{
 		if (spec->type == funcs[i].type)
-			return (funcs[i].func(spec, ap));
+			return (funcs[i].func(&spec, ap));
 		i++;
 	}
 	return (NULL);

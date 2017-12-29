@@ -6,7 +6,7 @@
 /*   By: kbedene <kbedene@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/29 10:04:20 by kbedene      #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/19 12:32:25 by kbedene     ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/20 14:16:48 by kbedene     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,7 +19,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <wctype.h>
-#include <stdio.h>
+# include <stdio.h>
 
 typedef struct		s_param
 {
@@ -35,6 +35,7 @@ typedef struct		s_param
 	char			p_j;
 	char			p_z;
 	char			type;
+	char			is_null;
 }					t_param;
 
 void				print_spec(t_param *spec);
@@ -42,7 +43,7 @@ void				print_spec(t_param *spec);
 typedef struct		s_proc_type
 {
 	char			type;
-	char			*(*func) (t_param *spec, va_list *ap);
+	char			*(*func) (t_param **spec, va_list *ap);
 }					t_proc_type;
 
 /*
@@ -60,12 +61,14 @@ char				*ft_convert_spec(t_param *spec, va_list *ap);
 /*
  ** Secondary functions
 */
-char				*ft_itoa_base(unsigned long n, char *base);
+char				*ft_itoa_base(unsigned int n, char *base);
+char				*ft_itoa_base_long(unsigned long n, char *base);
 size_t				ft_strclen(const char *s, int c);
 char				*ft_strcdup(const char *s, int c);
 char				*ft_ctoa(int c);
 int					ft_apply_flags(char **str_spec, t_param *spec);
 int					ft_apply_prec(char **str_spec, t_param *spec);
+int					ft_apply_prec_hash(char **str_spec, t_param *spec);
 int					ft_apply_width(char **str_spec, t_param *spec);
 void				ft_init_spec(t_param *spec);
 char				ft_atoi_binary(char *binary);
@@ -75,12 +78,11 @@ char				*ft_wchart_to_str(unsigned int *characters);
 /*
  ** Process functions
 */
-char				*ft_proc_s(t_param *spec, va_list *ap);
-char				*ft_proc_p(t_param *spec, va_list *ap);
-char				*ft_proc_d(t_param *spec, va_list *ap);
-char				*ft_proc_d_maj(t_param *spec, va_list *ap);
-char				*ft_proc_x(t_param *spec, va_list *ap);
-char				*ft_proc_c(t_param *spec, va_list *ap);
+char				*ft_proc_s(t_param **spec, va_list *ap);
+char				*ft_proc_p(t_param **spec, va_list *ap);
+char				*ft_proc_d(t_param **spec, va_list *ap);
+char				*ft_proc_x(t_param **spec, va_list *ap);
+char				*ft_proc_c(t_param **spec, va_list *ap);
 
 /*
  ** Checker functions
@@ -112,7 +114,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strcat(char *s1, const char *s2);
 char				*ft_conversion(const char **format, va_list *ap);
-char				*ft_itoa(int n);
+char				*ft_itoa(long n);
 int					ft_atoi(const char *str);
 char				*ft_strdup(const char *s1);
 char				*ft_strtoupper(char *s);

@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_init_spec.c                                   .::    .:/ .      .::   */
+/*   ft_itoa_base_long.c                              .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: kbedene <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/12/10 12:30:33 by kbedene      #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/20 10:01:13 by kbedene     ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/20 14:16:08 by kbedene      #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/20 14:16:51 by kbedene     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../header/ft_printf.h"
 
-void	ft_init_spec(t_param *spec)
+char	*ft_itoa_base_long(unsigned long n, char *base)
 {
-	spec->p_hash = 0;
-	spec->p_zero = 0;
-	spec->p_minus = 0;
-	spec->p_plus = 0;
-	spec->p_space = 0;
-	spec->field_size = 0;
-	spec->precision = -1;
-	spec->p_h = 0;
-	spec->p_l = 0;
-	spec->p_j = 0;
-	spec->p_z = 0;
-	spec->type = 0;
-	spec->is_null = 0;
+	char	*ascii;
+	short	nbase;
+	short	i;
+
+	i = 0;
+	nbase = ft_strlen(base);
+	ascii = ft_memalloc(16);
+	ascii[i] = '0';
+	while (n)
+	{
+		ascii[i] = base[n % nbase];
+		n /= nbase;
+		i++;
+	}
+	ft_strrev(ascii);
+	return (ascii);
 }

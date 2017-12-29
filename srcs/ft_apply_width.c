@@ -6,7 +6,7 @@
 /*   By: kbedene <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/11 16:35:12 by kbedene      #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/11 18:40:35 by kbedene     ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/20 12:22:18 by kbedene     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,8 +34,7 @@ int				ft_apply_width(char **str_spec, t_param *spec)
 		return (1);
 	if (!(new = (char *)ft_memalloc((spec->field_size + 1) * sizeof(char))))
 		return (0);
-	new[spec->field_size + 1] = '\0';
-	if (spec->p_zero && spec->precision == -1)
+	if (spec->p_zero && spec->precision == -1 && !(spec->p_minus))
 		fill_it(&new, (spec->field_size - len), '0');
 	else
 		fill_it(&new, (spec->field_size - len), ' ');
@@ -45,5 +44,6 @@ int				ft_apply_width(char **str_spec, t_param *spec)
 	else
 		*str_spec = ft_strjoin(new, *str_spec);
 	free(tmp);
+	free(new);
 	return (1);
 }

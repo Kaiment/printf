@@ -6,7 +6,7 @@
 /*   By: kbedene <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/14 11:26:29 by kbedene      #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/19 11:14:17 by kbedene     ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/20 08:52:53 by kbedene     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -76,6 +76,8 @@ char			*ft_wint_to_str(unsigned int character)
 	char	*tmp;
 	int		nb_active_bits;
 
+	if (character == 0)
+		return (ft_strdup(0));
 	str = ft_itoa_base(character, "01");
 	tmp = str;
 	while (*str != '1')

@@ -6,7 +6,7 @@
 /*   By: kbedene <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/10 17:21:30 by kbedene      #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/18 14:48:19 by kbedene     ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/20 12:32:44 by kbedene     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -58,7 +58,7 @@ static char		*prec_string(char *str_spec, int precision)
 {
 	char	*new;
 
-	if (strlen(str_spec) <= (unsigned long)precision)
+	if (ft_strlen(str_spec) <= (unsigned long)precision)
 		return (str_spec);
 	if (!(new = (char *)ft_memalloc((precision + 1) * sizeof(char))))
 		return (NULL);
@@ -68,9 +68,19 @@ static char		*prec_string(char *str_spec, int precision)
 
 int				ft_apply_prec(char **str_spec, t_param *spec)
 {
-	int		precision;
-	char	numbers[10];
+	int				precision;
+	char			numbers[10];
+	unsigned int	i;
 
+	i = 0;
+	while ((*str_spec)[i] == '0')
+		i++;
+	if (!(spec->precision) && !((*str_spec)[i]))
+	{
+		free(*str_spec);
+		*str_spec = ft_strdup("");
+		return (1);
+	}
 	ft_strcpy(numbers, "dDiuUoOxX");
 	precision = spec->precision;
 	if (ft_strchr(numbers, spec->type))

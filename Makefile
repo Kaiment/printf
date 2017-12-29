@@ -6,18 +6,19 @@
 #    By: kbedene <marvin@le-101.fr>                 +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/12/18 12:21:51 by kbedene      #+#   ##    ##    #+#        #
-#    Updated: 2017/12/19 12:28:07 by kbedene     ###    #+. /#+    ###.fr      #
+#    Updated: 2017/12/20 14:17:21 by kbedene     ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
 
-NAME = ft_printf.a
+NAME = libftprintf.a
 
 SRC_FILES =\
 			ft_printf.c\
 			ft_conversion.c ft_convert_spec.c\
 			ft_apply_flags.c ft_apply_prec.c ft_apply_width.c\
 			ft_check_flags.c ft_check_width.c ft_check_precision.c\
+			ft_apply_prec_hash.c\
 			ft_check_size.c\
 			ft_get_type.c ft_init_spec.c ft_isflag.c ft_isize.c\
 			ft_wint_to_str.c ft_wchart_to_str.c\
@@ -30,7 +31,7 @@ LIBFT_FILES =\
 			ft_atoi.c ft_bzero.c ft_islower.c\
 			ft_putchar.c ft_putchar_fd.c\
 			ft_atoi_binary.c\
-			ft_itoa.c ft_itoa_base.c\
+			ft_itoa.c ft_itoa_base.c ft_itoa_base_long\
 			ft_isdigit.c ft_putnbr.c ft_putnbr_fd.c\
 			ft_memalloc.c ft_strcdup.c ft_strjoin.c ft_strdup.c\
 			ft_strcpy.c ft_strrev.c ft_strclen.c\

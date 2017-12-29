@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_init_spec.c                                   .::    .:/ .      .::   */
+/*   main.c                                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: kbedene <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/12/10 12:30:33 by kbedene      #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/20 10:01:13 by kbedene     ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/20 08:50:30 by kbedene      #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/20 12:26:07 by kbedene     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../header/ft_printf.h"
+#include "header/ft_printf.h"
 
-void	ft_init_spec(t_param *spec)
+int		main()
 {
-	spec->p_hash = 0;
-	spec->p_zero = 0;
-	spec->p_minus = 0;
-	spec->p_plus = 0;
-	spec->p_space = 0;
-	spec->field_size = 0;
-	spec->precision = -1;
-	spec->p_h = 0;
-	spec->p_l = 0;
-	spec->p_j = 0;
-	spec->p_z = 0;
-	spec->type = 0;
-	spec->is_null = 0;
+	printf("%015.5c", "00-42");
 }

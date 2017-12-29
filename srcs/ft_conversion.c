@@ -6,7 +6,7 @@
 /*   By: kbedene <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/06 10:52:55 by kbedene      #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/15 17:30:03 by kbedene     ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/20 14:02:49 by kbedene     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,9 +35,11 @@ char			*ft_conversion(const char **format, va_list *ap)
 		return (NULL);
 	if (!(str_spec = ft_convert_spec(&spec, ap)))
 		return (NULL);
+	if (!(ft_apply_prec(&str_spec, &spec)))
+		return (NULL);
 	if (!(ft_apply_flags(&str_spec, &spec)))
 		return (NULL);
-	if (!(ft_apply_prec(&str_spec, &spec)))
+	if (!(ft_apply_prec_hash(&str_spec, &spec)))
 		return (NULL);
 	if (!(ft_apply_width(&str_spec, &spec)))
 		return (NULL);

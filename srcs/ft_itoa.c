@@ -6,15 +6,14 @@
 /*   By: kbedene <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/27 18:37:03 by kbedene      #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/27 18:37:03 by kbedene     ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/20 11:53:14 by kbedene     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "libft.h"
+#include "../header/ft_printf.h"
 
-static int		ft_nbdigits(int nb)
+static int		ft_nbdigits(long nb)
 {
 	int		nb_digits;
 
@@ -32,16 +31,16 @@ static int		ft_nbdigits(int nb)
 	return (nb_digits);
 }
 
-static char		*ft_except(int n, char *a_nb)
+static char		*ft_except(long n, char **a_nb)
 {
-	if (n == -2147483648)
-		return (a_nb = ft_strdup("-2147483648"));
+	if (n < -9223372036854775807)
+		return (*a_nb = ft_strdup("-9223372036854775808"));
 	else if (!n)
-		return (a_nb = ft_strdup("0"));
+		return (*a_nb = ft_strdup("0"));
 	return (NULL);
 }
 
-char			*ft_itoa(int n)
+char			*ft_itoa(long n)
 {
 	char	*a_nb;
 	int		neg;
@@ -50,8 +49,8 @@ char			*ft_itoa(int n)
 	neg = 1;
 	if (!(a_nb = malloc((ft_nbdigits(n) + 1) * sizeof(char))))
 		return (NULL);
-	if (n == 0 || n == -2147483648)
-		return (ft_except(n, a_nb));
+	if (n == 0 || n < -9223372036854775807)
+		return (ft_except(n, &a_nb));
 	if (n < 0)
 	{
 		neg = -1;

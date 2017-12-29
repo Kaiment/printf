@@ -6,14 +6,14 @@
 /*   By: kbedene <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/30 17:20:33 by kbedene      #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/05 18:07:29 by kbedene     ###    #+. /#+    ###.fr     */
+/*   Updated: 2017/12/20 14:15:41 by kbedene     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../header/ft_printf.h"
 
-char	*ft_itoa_base(unsigned long n, char *base)
+char	*ft_itoa_base(unsigned int n, char *base)
 {
 	char	*ascii;
 	short	nbase;
